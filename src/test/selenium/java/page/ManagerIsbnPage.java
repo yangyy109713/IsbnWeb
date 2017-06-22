@@ -6,7 +6,7 @@ public class ManagerIsbnPage {
 	public final String ADD_ISBN = "add-isbn";
 	
 	public final String NEW_BARCODE_BARCODE_XPATH = "//form[@id='isbn_new_barcode_form']//input[@type='text']";
-	public final String BARCODE = "2017061500003";
+	public final String BARCODE = "2017061500001";
 	public final String NEW_BARCODE_SUBMIT_XPATH = "//form[@id='isbn_new_barcode_form']//button[@type='submit']";
 	
 	public final String BARCOD_ID = "barcode";

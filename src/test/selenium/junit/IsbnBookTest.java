@@ -4,31 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 
 import static org.junit.Assert.assertEquals;
+
 import test.selenium.java.page.ManagerIsbnPage;
 import test.selenium.util.Configs;
+import test.selenium.util.Locator;
+import test.selenium.util.Log;
 
 public class IsbnBookTest {
 	private WebDriver driver;
 	private Base base = new Base();
 	private List<String> list;
 	private ManagerIsbnPage mp = new ManagerIsbnPage();
+	Actions action;
+	Locator locator;
+	private Log log = new Log(this.getClass());
 	
 	@Before
 	public void start(){
 		driver = base.getDriver("chrome");
-		driver.get(Configs.getMapValue("qaurl1"));
+		driver.get(Configs.getMapValue("produrl"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		base.getCookies(driver, "cookies.data");
-		driver.get(Configs.getMapValue("qaurl1"));
+		log.info(" login with cookie success!");
+		driver.get(Configs.getMapValue("produrl"));
+		log.info(" open chrome browser success!");
 		base.sleep(1000);
 	}
 	
@@ -43,7 +53,7 @@ public class IsbnBookTest {
 		backToFirstWindow();
 		findIsbn();
 		handleIsbnBook();
-		base.sleep(50000);
+		base.sleep(20000);
 	}
 	
 	public void toIsbnManage(){
@@ -127,6 +137,9 @@ public class IsbnBookTest {
 	
 	public void backToFirstWindow(){
 		list = base.getUrls(driver);
+		action = new Actions(driver);
+		action.keyDown(Keys.CONTROL).sendKeys(Keys.TAB).keyUp(Keys.CONTROL).sendKeys(Keys.NULL).perform();
+		base.sleep(1000);
 		base.switchToNewWindow(driver , list.get(0));
 	}
 	
