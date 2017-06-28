@@ -20,6 +20,7 @@ import test.selenium.java.page.ManagerIsbnPage;
 import test.selenium.util.Configs;
 import test.selenium.util.Locator;
 import test.selenium.util.Log;
+import test.selenium.util.Base;
 
 public class IsbnBookTest {
 	private WebDriver driver;

@@ -1,68 +1,68 @@
 
-Java»ù´¡£ºÂÔ¡£
-Java¹Ù·½ÎÄµµ£ºhttp://docs.oracle.com/javase/8/docs/api/
+JavaåŸºç¡€ï¼šç•¥ã€‚
+Javaå®˜æ–¹æ–‡æ¡£ï¼šhttp://docs.oracle.com/javase/8/docs/api/
 
 
 
-´î½¨¿ª·¢»·¾³
-1.°²×°ÅäÖÃJDK£¬²Î¿¼°Ù¶È¾­Ñé
+æ­å»ºå¼€å‘ç¯å¢ƒ
+1.å®‰è£…é…ç½®JDKï¼Œå‚è€ƒç™¾åº¦ç»éªŒ
 http://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html
 
-2.°²×°¿ª·¢¹¤¾ß£¬ÒÔEclipseÎªÀı£¬²Î¿¼°Ù¶È¾­Ñé
+2.å®‰è£…å¼€å‘å·¥å…·ï¼Œä»¥Eclipseä¸ºä¾‹ï¼Œå‚è€ƒç™¾åº¦ç»éªŒ
 http://jingyan.baidu.com/article/d7130635194f1513fcf47557.html
 
-3.ĞÂ½¨Java Project
+3.æ–°å»ºJava Project
 
-4.ÏÂÔØ²¢µ¼ÈëSeleniumµÄ¶ÀÁ¢jarÎÄ¼ş£¬¼û¡°selenium-server-standalone-2.45.0.jar¡±
+4.ä¸‹è½½å¹¶å¯¼å…¥Seleniumçš„ç‹¬ç«‹jaræ–‡ä»¶ï¼Œè§â€œselenium-server-standalone-2.45.0.jarâ€
 
-5.µ¼ÈëJUnit jarÎÄ¼ş£¬¼û¡°junit-4.12.jar¡±
+5.å¯¼å…¥JUnit jaræ–‡ä»¶ï¼Œè§â€œjunit-4.12.jarâ€
 
-6.JUnitµÄÊ¹ÓÃ
-6.1 Ê¹ÓÃ@Before @Test @After¸ø·½·¨Ìí¼Ó×¢½â£¬ÔÚEclipseÖĞÍ¨¹ıRun as -> 
-	JUnit TestÔËĞĞ²âÊÔ½Å±¾
-6.2 Ê¹ÓÃSuite½«¶à¸öJUnit TestÀàÒ»ÆğÖ´ĞĞ£¬´úÂë¾ßÌåÈçÏÂËùÊ¾£º
+6.JUnitçš„ä½¿ç”¨
+6.1 ä½¿ç”¨@Before @Test @Afterç»™æ–¹æ³•æ·»åŠ æ³¨è§£ï¼Œåœ¨Eclipseä¸­é€šè¿‡Run as -> 
+	JUnit Testè¿è¡Œæµ‹è¯•è„šæœ¬
+6.2 ä½¿ç”¨Suiteå°†å¤šä¸ªJUnit Testç±»ä¸€èµ·æ‰§è¡Œï¼Œä»£ç å…·ä½“å¦‚ä¸‹æ‰€ç¤ºï¼š
 	@RunWith(Suite.class)
 	@Suite.SuiteClasses({
 		LoginTest.class,
 		IsbnBookTest.class,
 		AddIsbnTest.class
 	})
-6.3 ÆäËû¿É²Î¿¼JUnit¹Ù·½ÎÄµµ
+6.3 å…¶ä»–å¯å‚è€ƒJUnitå®˜æ–¹æ–‡æ¡£
     http://junit.org/junit4/javadoc/latest/index.html
 
 
-Selenium¼ò½é
+Seleniumç®€ä»‹
 
-1. Selenium 1.x½éÉÜ
-1.1 Selenium 1.xÊÇÒ»Ì×ÍêÕûµÄWeb²âÊÔÏµÍ³
-1.2 Selenium 1.x°üº¬½Å±¾Â¼ÖÆ£¨Selenium IDE£©,±àĞ´ºÍÔËĞĞ£¨Selenium RC£©
-
-
-2.Selenium 2½éÉÜ
-2.1 Selenium 2ÓÖ±»³ÆÎªWebDriver£¬ÊÇSelenium 1.x ºÍWebDriverµÄ¼¯³É£¬ºÏ²¢Ç°Á½ÕßÊÇµ¥¶ÀµÄÏîÄ¿
-2.2 Selenium 2ÄÜ¹»ÈÆ¹ıJSÉ³Ïä£¬²¢ÎªÓÃ»§Ìá¹©¸ü¶àµÄä¯ÀÀÆ÷ºÍ¿ª·¢ÓïÑÔµÄÖ§³Ö
+1. Selenium 1.xä»‹ç»
+1.1 Selenium 1.xæ˜¯ä¸€å¥—å®Œæ•´çš„Webæµ‹è¯•ç³»ç»Ÿ
+1.2 Selenium 1.xåŒ…å«è„šæœ¬å½•åˆ¶ï¼ˆSelenium IDEï¼‰,ç¼–å†™å’Œè¿è¡Œï¼ˆSelenium RCï¼‰
 
 
-3. Selenium 2£¨WebDriver£©Ê¹ÓÃ·½Ê½
-3.1ÔÚ´úÂëÖĞÏÔÊ¾Ö¸¶¨ä¯ÀÀÆ÷Çı¶¯µÄÂ·¾¶£¬·ñÔò¿ÉÄÜÎŞ·¨Æô¶¯ä¯ÀÀÆ÷
-3.2¸ù¾İÑ¡Ôñä¯ÀÀÆ÷£¬ĞÂ½¨ä¯ÀÀÆ÷Çı¶¯¶ÔÏódriver£¬ÓÃÓÚ²Ù×÷Ò³ÃæÔªËØ
+2.Selenium 2ä»‹ç»
+2.1 Selenium 2åˆè¢«ç§°ä¸ºWebDriverï¼Œæ˜¯Selenium 1.x å’ŒWebDriverçš„é›†æˆï¼Œåˆå¹¶å‰ä¸¤è€…æ˜¯å•ç‹¬çš„é¡¹ç›®
+2.2 Selenium 2èƒ½å¤Ÿç»•è¿‡JSæ²™ç®±ï¼Œå¹¶ä¸ºç”¨æˆ·æä¾›æ›´å¤šçš„æµè§ˆå™¨å’Œå¼€å‘è¯­è¨€çš„æ”¯æŒ
 
 
-4. Selenium API»ù±¾Óï·¨
-4.1Í¨¹ı·½·¨driver.get(url)ÔÚÖ¸¶¨ä¯ÀÀÆ÷ÖĞ´ò¿ªÍøÖ·£¬driver.quit()»òdriver.close()¹Ø±Õ
-4.1¸ù¾İSelenium API»ñÈ¡Ò³ÃæÔªËØ·½·¨£¬Èç£ºelement = driver.findElement(By.XX(¡°¡±))
-	»ñµÃÒ³ÃæÔªËØ£»
-	element.click()ÊµÏÖµã»÷²Ù×÷
-	element.sendKeys(¡°¡±)ÊäÈëÄÚÈİ
-4.3 Selenium »ù´¡ÄÚÈİ¿É²Î¿¼Ïà¹ØÎÄµµ£¬¼û¡°Selenium_ÖĞÎÄAPI.pdf¡±
-4.4 Selenium Java ²Î¿¼ÎÄµµ£¨Ó¢ÎÄ°æ£©£¬¼û¡°selenium_api_JAVADOC.rar¡±,
-	½âÑ¹ºó´ò¿ª¡°index.html¡±¼´¿É²é¿´
+3. Selenium 2ï¼ˆWebDriverï¼‰ä½¿ç”¨æ–¹å¼
+3.1åœ¨ä»£ç ä¸­æ˜¾ç¤ºæŒ‡å®šæµè§ˆå™¨é©±åŠ¨çš„è·¯å¾„ï¼Œå¦åˆ™å¯èƒ½æ— æ³•å¯åŠ¨æµè§ˆå™¨
+3.2æ ¹æ®é€‰æ‹©æµè§ˆå™¨ï¼Œæ–°å»ºæµè§ˆå™¨é©±åŠ¨å¯¹è±¡driverï¼Œç”¨äºæ“ä½œé¡µé¢å…ƒç´ 
 
 
-5. Selenium IDE ½Å±¾Â¼ÖÆ¹¤¾ß
-5.1 SeleniumÊÇFirefoxµÄÒ»¸ö²å¼ş£¬¿ÉÔÚFirefoxÖĞÖ±½ÓÌí¼Ó×é¼ş
-5.2 ´ò¿ªIDE£¬FirefoxÖĞÊäÈëÍøÖ·£¬¿ªÊ¼Â¼ÖÆ£¬Â¼ÖÆÍê³É£¬¿Éµ¼³öjava/python/C#
-	µÈ¶àÖÖ¿ª·¢ÓïÑÔÖ§³ÖµÄ½Å±¾¡£
+4. Selenium APIåŸºæœ¬è¯­æ³•
+4.1é€šè¿‡æ–¹æ³•driver.get(url)åœ¨æŒ‡å®šæµè§ˆå™¨ä¸­æ‰“å¼€ç½‘å€ï¼Œdriver.quit()æˆ–driver.close()å…³é—­
+4.1æ ¹æ®Selenium APIè·å–é¡µé¢å…ƒç´ æ–¹æ³•ï¼Œå¦‚ï¼šelement = driver.findElement(By.XX(â€œâ€))
+	è·å¾—é¡µé¢å…ƒç´ ï¼›
+	element.click()å®ç°ç‚¹å‡»æ“ä½œ
+	element.sendKeys(â€œâ€)è¾“å…¥å†…å®¹
+4.3 Selenium åŸºç¡€å†…å®¹å¯å‚è€ƒç›¸å…³æ–‡æ¡£ï¼Œè§â€œSelenium_ä¸­æ–‡API.pdfâ€
+4.4 Selenium Java å‚è€ƒæ–‡æ¡£ï¼ˆè‹±æ–‡ç‰ˆï¼‰ï¼Œè§â€œselenium_api_JAVADOC.rarâ€,
+	è§£å‹åæ‰“å¼€â€œindex.htmlâ€å³å¯æŸ¥çœ‹
+
+
+5. Selenium IDE è„šæœ¬å½•åˆ¶å·¥å…·
+5.1 Seleniumæ˜¯Firefoxçš„ä¸€ä¸ªæ’ä»¶ï¼Œå¯åœ¨Firefoxä¸­ç›´æ¥æ·»åŠ ç»„ä»¶
+5.2 æ‰“å¼€IDEï¼ŒFirefoxä¸­è¾“å…¥ç½‘å€ï¼Œå¼€å§‹å½•åˆ¶ï¼Œå½•åˆ¶å®Œæˆï¼Œå¯å¯¼å‡ºjava/python/C#
+	ç­‰å¤šç§å¼€å‘è¯­è¨€æ”¯æŒçš„è„šæœ¬ã€‚
 
 
 

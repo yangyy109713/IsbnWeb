@@ -8,7 +8,7 @@ Rolling的意思是当满足一定条件后，就重命名原日志文件用于�
 <Configuration status="WARN" monitorInterval="300">
 	<properties>
 		<property name="LOG_HOME">
-			F:/WorkSpace/IsbnTest_GitHub/log
+			E:/Intellij IDEA Projects/IsbnWeb/log
 		</property>
 		<property name="FILE_NAME">
 			selenium_log

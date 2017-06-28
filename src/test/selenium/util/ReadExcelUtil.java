@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -15,7 +16,8 @@ import org.apache.poi.ss.usermodel.DateUtil;
 public class ReadExcelUtil {
 
 	static String filepath;
-	
+	static Log log = new Log(ReadExcelUtil.class);
+
 	@SuppressWarnings("deprecation")
 	public static String[][] getLocatorMap() {
 		filepath = "src/UILibrary.xls";
@@ -42,25 +44,30 @@ public class ReadExcelUtil {
 					switch(cell.getCellType()){
 					case Cell.CELL_TYPE_STRING : 
 						value = cell.getRichStringCellValue().toString();
+						log.info(value + " is a string value");
 						break;
 					case Cell.CELL_TYPE_NUMERIC :
 						if(DateUtil.isCellDateFormatted(cell)){
 							value = cell.getDateCellValue().toString();
+							log.info(value + " is a date value");
 						}else{
 							value = Double.toString(cell.getNumericCellValue());
+							log.info(value + " is a numberToString value");
 						}
 						break;
 					case Cell.CELL_TYPE_BOOLEAN : 
 						value = Boolean.toString(cell.getBooleanCellValue());
+						log.info(value + " is a booleanToString value");
 						break;
 					case Cell.CELL_TYPE_FORMULA : 
 						value = cell.getCellFormula().toLowerCase();
+						log.info(value + " is a formulaToLowerCase value!");
 						break;
 					default : 
 						value = " ";
 					}
 					locatorMap[row.getRowNum()][cell.getColumnIndex()] = value;
-					//System.out.println("locatorMap[" + row.getRowNum() + "][" + cell.getColumnIndex() + "]=" + value);
+					System.out.println("locatorMap[" + row.getRowNum() + "][" + cell.getColumnIndex() + "]=" + value);
 				}
 			}
 			fis.close();
@@ -73,24 +80,8 @@ public class ReadExcelUtil {
 	}
 	
 	public static void main(String[] args){
-		getLocatorMap();
-		/*
-		locatorMap[0][0]=LocatorName
-		locatorMap[0][1]=element
-		locatorMap[0][2]=waitSec
-		locatorMap[0][3]=byType
-		locatorMap[1][0]=[com.dbyl.libarary.pageAction.HomePage]
-		locatorMap[2][0]=profile
-		locatorMap[2][1]=//div[@class='top-nav-profile']//img[@class='avatar']
-		locatorMap[3][0]=[com.dbyl.libarary.pageAction.LoginPage]
-		locatorMap[4][0]=loginEmailInputBox
-		locatorMap[4][1]=//input[@name='email']
-		locatorMap[5][0]=loginButton
-		locatorMap[5][1]=//button[@class='sign-button']
-		locatorMap[6][0]=profile
-		locatorMap[6][1]=//div[@class='top-nav-profile']//img[@class='avatar']
-		locatorMap[7][0]=loginPasswordInputBox
-		locatorMap[7][1]=//input[@name='password'] 
-		*/
+		//getLocatorMap();
+		String s1 = "888888.0";
+		System.out.println(s1.substring(0 , s1.length() - 2));
 	}
 }

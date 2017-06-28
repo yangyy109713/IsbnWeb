@@ -1,7 +1,7 @@
 package test.selenium.java.page;
 
 public class ManagerIsbnPage {
-	public final String ISBN_MANAGE = "ISBN¹ÜÀí";
+	public final String ISBN_MANAGE = "ISBNç®¡ç†";
 	public final String ISBN_MANAGER_XPATH = "//div[@id='main-menu-inner']/ul/li/ul/li/a/span";
 	public final String ADD_ISBN = "add-isbn";
 	
@@ -13,31 +13,31 @@ public class ManagerIsbnPage {
 	public final String BARCOD_SEARCH_ID = "search-btn";
 	
 	public final String DELETE_BOOK_CLASS = "isbn-delete-info";
-	public final String DELETE_BOOK_CONFIRM = "È·¶¨ÒªÉ¾³ıÊé±¾£¿";
+	public final String DELETE_BOOK_CONFIRM = "ç¡®å®šè¦åˆ é™¤ä¹¦æœ¬ï¼Ÿ";
 	public final String ADD_BOOK_XPATH = "(//table[@id='workflowIsbnTable']//div[@class='pull-left'])[1]/a/span";//when only a barcode
-	public final String ADD_BOOK_CONFIRM = "È·¶¨ĞèÒªĞÂ½¨×÷Òµ±¾£¿";
+	public final String ADD_BOOK_CONFIRM = "ç¡®å®šéœ€è¦æ–°å»ºä½œä¸šæœ¬ï¼Ÿ";
 	
-	public final String EDIT_BOOK_LINKTEXT = "±à¼­";
+	public final String EDIT_BOOK_LINKTEXT = "ç¼–è¾‘";
 	
 	//public final String BOOK_NAME_XPATH = "(//div[@id='isbn-info-panel-0']//div[@class='row'])[1]/div/div/div/input";
 	
 	public final String BOOK_NAME_NAME = "name";
-	public final String BOOK_NAME = "ÏãéÄÃµ¹å";
+	public final String BOOK_NAME = "é¦™æ§Ÿç«ç‘°";
 	
 	public final String BOOK_TYPE = "type";
-	public final String BOOK_TYPE_SELECT = "ÊîÆÚ×÷Òµ";
+	public final String BOOK_TYPE_SELECT = "æš‘æœŸä½œä¸š";
 	public final String BOOK_SUBJECT = "subject";
-	public final String BOOK_SUBJECT_SELECT = "Ó¢Óï";
+	public final String BOOK_SUBJECT_SELECT = "è‹±è¯­";
 	public final String BOOK_GRADE = "grade";
-	public final String BOOK_GRADE_SELECT = "°ËÄê¼¶";
+	public final String BOOK_GRADE_SELECT = "å…«å¹´çº§";
 	public final String BOOK_TERM = "term";
-	public final String BOOK_TERM_SELECT = "ÉÏ²á";
+	public final String BOOK_TERM_SELECT = "ä¸Šå†Œ";
 	public final String BOOK_EDITION = "edition";
-	public final String BOOK_EDITION_SELECT = "Õã½Ì°æ";
+	public final String BOOK_EDITION_SELECT = "æµ™æ•™ç‰ˆ";
 	
 	//public final String BOOK_PUBLISH_XPATH = "(//div[@id='isbn-info-panel-0']//div[@class='row'])[3]/div/div/div/input";
 	public final String BOOK_PUBLISH_NAME = "press";
-	public final String BOOK_PUBLISH_CONTENT = "ÏãéÄÃµ¹å¹¤³§";
+	public final String BOOK_PUBLISH_CONTENT = "é¦™æ§Ÿç«ç‘°å·¥å‚";
 	public final String BOOK_PUBLISH_YEAR = "year";
 	public final String BOOK_PUBLISH_YEAR_CONTENT = "2017";
 	public final String BOOK_PUBLISH_MONTH = "month";
@@ -52,21 +52,21 @@ public class ManagerIsbnPage {
 	public final String BOOK_PUBLISH_PRINTREVERSION_CONTENT = "16";
 	
 	public final String HAS_ANSWER = "hasAnswer";
-	public final String HAS_ANSWER_SELECT = "ÊÇ";
+	public final String HAS_ANSWER_SELECT = "æ˜¯";
 	public final String VALIDATION = "validation";
-	public final String VALIDATION_SELECT = "Î´¾­¹ıÉó¶¨";
+	public final String VALIDATION_SELECT = "æœªç»è¿‡å®¡å®š";
 	public final String UPLOAD_IMG = "cover-file-input-0";
-	public final String UPLOAD_IMG_PATH = "E:\\Photo\\×÷Òµ±¾2\\00.jpg";
+	public final String UPLOAD_IMG_PATH = "E:\\Photo\\ä½œä¸šæœ¬2\\00.jpg";
 	public final String SAVE_BOOK_CLASSNAME = "save-info";
-	public final String SAVE_BOOK_CONFIRM = "ÄãÈ·¶¨ĞèÒª±£´æÊı¾İ£¿";
+	public final String SAVE_BOOK_CONFIRM = "ä½ ç¡®å®šéœ€è¦ä¿å­˜æ•°æ®ï¼Ÿ";
 	
 	public final String HANDLE_CLASS = "open-workflow-modal";
 	public final String HANDLE_O_ID = "workflowOp";
-	public final String HANDLE_O_BUY = "Ìá½»¹ºÂò";
+	public final String HANDLE_O_BUY = "æäº¤è´­ä¹°";
 	public final String HANDLE_P_ID = "nextUserId";
 	public final String HANDLE_P_M = "yangyyhandle";
 	public final String HANDLE_E_ID = "workflowDesc";
 	public final String HANDLE_E_CON = "auto test";
 	public final String HANDLE_SUBMIT_CLASS = "do-commit-workflow";
-	public final String HANDLE_SUBMIT_CONTENT = "ÄúÈ·¶¨ĞèÒªÌá½»¸Ã´¦Àí£¿";
+	public final String HANDLE_SUBMIT_CONTENT = "æ‚¨ç¡®å®šéœ€è¦æäº¤è¯¥å¤„ç†ï¼Ÿ";
 }

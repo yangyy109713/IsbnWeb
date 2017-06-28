@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 import test.selenium.java.page.ManagerIsbnPage;
 import test.selenium.util.Configs;
+import test.selenium.util.Base;
 
 public class AddIsbnTest {
 	private WebDriver driver;
@@ -40,7 +41,7 @@ public class AddIsbnTest {
 		//driver.findElement(By.cssSelector("div.col-sm-8 > #barcode")).sendKeys("2017061400002");
 		base.sleep(1000);
 		driver.findElement(By.xpath(mp.NEW_BARCODE_SUBMIT_XPATH)).click();
-		assertEquals("确定要新增条形码？",base.closeAlertAndGetsItsTest());
+		assertEquals("确锟斤拷要锟斤拷锟斤拷锟斤拷锟斤拷锟诫？",base.closeAlertAndGetsItsTest());
 		base.sleep(50000);
 	}
 	

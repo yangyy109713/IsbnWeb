@@ -3,7 +3,7 @@ package test.selenium.java.page;
 public class LoginPage {
 	public final String USERNAME_ID = "userName";
 	public final String USERPASS_ID = "password";
-	/*²âÊÔ»·¾³£º
+	/*æµ‹è¯•çŽ¯å¢ƒï¼š
 	public final String USERNAME = "yangyy";
 	public final String USERPASS = "123456";
 	*/
