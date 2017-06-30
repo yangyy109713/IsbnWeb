@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	LoginTest.class,
-	IsbnBookTest.class,
-	AddIsbnTest.class
+		AddIsbnTest.class,
+	IsbnBookTest.class
+
 })
 
 public class IsbnJUnitSuite {

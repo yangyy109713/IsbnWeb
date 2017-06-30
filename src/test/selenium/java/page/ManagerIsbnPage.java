@@ -6,7 +6,7 @@ public class ManagerIsbnPage {
 	public final String ADD_ISBN = "add-isbn";
 	
 	public final String NEW_BARCODE_BARCODE_XPATH = "//form[@id='isbn_new_barcode_form']//input[@type='text']";
-	public final String BARCODE = "2017061500001";
+	public final String BARCODE = "2017063015172";
 	public final String NEW_BARCODE_SUBMIT_XPATH = "//form[@id='isbn_new_barcode_form']//button[@type='submit']";
 	
 	public final String BARCOD_ID = "barcode";
@@ -69,4 +69,8 @@ public class ManagerIsbnPage {
 	public final String HANDLE_E_CON = "auto test";
 	public final String HANDLE_SUBMIT_CLASS = "do-commit-workflow";
 	public final String HANDLE_SUBMIT_CONTENT = "您确定需要提交该处理？";
+
+	public final String BUY_XPATH = "(//div[@id='main-menu-inner']/ul/li/ul/li)[4]";
+	public final String HANDLE_BUY = "提交上传";
+	public final String HANDLE_M1 = "yangyyupload";
 }

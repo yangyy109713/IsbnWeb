@@ -44,30 +44,25 @@ public class ReadExcelUtil {
 					switch(cell.getCellType()){
 					case Cell.CELL_TYPE_STRING : 
 						value = cell.getRichStringCellValue().toString();
-						log.info(value + " is a string value");
 						break;
 					case Cell.CELL_TYPE_NUMERIC :
 						if(DateUtil.isCellDateFormatted(cell)){
 							value = cell.getDateCellValue().toString();
-							log.info(value + " is a date value");
 						}else{
 							value = Double.toString(cell.getNumericCellValue());
-							log.info(value + " is a numberToString value");
 						}
 						break;
 					case Cell.CELL_TYPE_BOOLEAN : 
 						value = Boolean.toString(cell.getBooleanCellValue());
-						log.info(value + " is a booleanToString value");
 						break;
 					case Cell.CELL_TYPE_FORMULA : 
 						value = cell.getCellFormula().toLowerCase();
-						log.info(value + " is a formulaToLowerCase value!");
 						break;
 					default : 
 						value = " ";
 					}
 					locatorMap[row.getRowNum()][cell.getColumnIndex()] = value;
-					System.out.println("locatorMap[" + row.getRowNum() + "][" + cell.getColumnIndex() + "]=" + value);
+					//log.info("locatorMap[" + row.getRowNum() + "][" + cell.getColumnIndex() + "]=" + value);
 				}
 			}
 			fis.close();

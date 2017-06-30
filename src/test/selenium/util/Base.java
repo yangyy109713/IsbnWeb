@@ -47,28 +47,30 @@ public class Base {
 				}
 			}));
 			locatorMap = ReadExcelUtil.getLocatorMap();//get html locator from .xls
+			log.info("get locatorMap success! size=" + locatorMap.length);
 			return driver;
 		}
 		log.warn("driver is null!");
 		return null;
 	}
 
-	public void type(WebDriver driver , Locator locator){
-		log.info(" locator =1= " + locator.toString());
-		WebElement e = findElement(driver , locator);
-		log.info(" locator =2= " + locator.toString());
-		log.info(" type value is:  " + locator.getElementValue());
-		e.sendKeys(locator.getElementValue());
+	public void type(WebDriver driver , Locator locator) throws IOException{
+		Locator loc = getLocator(locator.getElement());
+		log.info("locator == " + loc.toString());
+		WebElement e = findElement(driver , loc);
+		e.sendKeys(loc.getElementValue());
 	}
 
 	public void click(WebDriver driver , Locator locator) throws Exception{
-		WebElement e = findElement(driver , locator);
+		Locator loc = getLocator(locator.getElement());
+		WebElement e = findElement(driver , loc);
 		log.info("click button!");
 		e.click();
 	}
 
 	public void select(Locator locator , String value) throws Exception{
-		WebElement e = findElement(driver , locator);
+		Locator loc = getLocator(locator.getElement());
+		WebElement e = findElement(driver , loc);
 		Select s = new Select(e);
 		try{
 			log.info("select by value : " + value);
@@ -86,17 +88,21 @@ public class Base {
 	 * @throws IOException
 	 */
 	public Locator getLocator(String locatorName) throws IOException {
-		log.info("get Locator from locatorMap..." + locatorName);
+		log.info("get Locator from locatorMap == " + locatorName);
 		for(int i = 1 ; i < locatorMap.length ; i++){
 			if(locatorMap[i][0].endsWith(locatorName)){
-				if((locatorMap[i][2]).endsWith(".0")){
-					Locator locator = new Locator(locatorMap[i][1] , getSubStr(locatorMap[i][2]) ,
-							Long.valueOf(getSubStr(locatorMap[i][3])) , Locator.getBy(locatorMap[i][4]));
-					log.info("get Locator from locatorMap success! the locator is " + locator.toString());
-					return locator;
-				}else{
-					return new Locator(locatorMap[i][1] , Long.valueOf(getSubStr(locatorMap[i][3])) , Locator.getBy(locatorMap[i][4]));
+				Locator locator = new Locator();
+				locator.setElement(locatorMap[i][1]);//element_id = locatorMap[i][1]
+				locator.setBy(Locator.getBy(locatorMap[i][4]));
+				locator.setWaitSec(Long.valueOf(getSubStr(locatorMap[i][3])));
+				if(null != locatorMap[i][2]){
+					if(locatorMap[i][2].endsWith(".0")){
+						locator.setElementValue(getSubStr(locatorMap[i][2]));
+					}else{
+						locator.setElementValue(locatorMap[i][2]);
+					}
 				}
+				return locator;
 			}
 		}
 		return new Locator(locatorName);
@@ -129,12 +135,11 @@ public class Base {
 	 * @throws IOException
 	 * @author yuanyuanyang1 2017-06-20
 	 */
-	public WebElement getElement(WebDriver driver , Locator sourcelocator) throws IOException{
-		log.info("getElement-sourceLocator.element == "+sourcelocator.getElement());
-		Locator locator = getLocator(sourcelocator.getElement());
+	public WebElement getElement(WebDriver driver , Locator locator) throws IOException{
+		/*Locator locator = getLocator(sourcelocator.getElement());
 		if(locator == null){
 			locator = new Locator(sourcelocator.getElement() , sourcelocator.getElementValue() , sourcelocator.getWaitSec() , sourcelocator.getBy());
-		}
+		}*/
 		WebElement e;
 		switch(locator.getBy()){
 		case xpath : 
@@ -227,16 +232,15 @@ public class Base {
 		BufferedWriter bw;
 		try{
 			file = new File(path);
-			log.info("delete cookies.data!");
+			log.info("delete cookies-prod.data success!");
 			file.delete();//if there is same file,delete it
-			log.info("create cookies.data!");
+			log.info("create cookies-prod.data success!");
 			file.createNewFile();//create a new file
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 			for(Cookie ck : cookies){
-				log.info("write cookies.data!");
 				bw.write(ck.getName() + ";"  + ck.getValue() + ";" + ck.getDomain() + ";" + ck.getPath() + ";" +ck.getExpiry() + ";" +ck.isSecure());
-				log.info("a new line in cookies.data!");
+				log.info("a new line write success!");
 				bw.newLine();
 			}
 			bw.flush();
@@ -244,7 +248,7 @@ public class Base {
 			fw.close();
 			log.info(" save cookies success!");
 		}catch(IOException e){
-			log.error("write cookies.data IOException!");
+			log.error("write cookies-prod.data IOException!");
 			e.printStackTrace();
 		}
 	}
@@ -266,14 +270,13 @@ public class Base {
 						System.out.println(tmp);
 					}
 				 */
-				log.info(" read cookies.data !");
+				log.info(" read cookies-prod.data !");
 				StringTokenizer st = new StringTokenizer(line , ";");
 				while(st.hasMoreTokens()){
 					String name = st.nextToken();
 					String value = st.nextToken();
 					String domain = st.nextToken();
 					String path = st.nextToken();
-					@SuppressWarnings("unused")
 					String expiryStrign = st.nextToken();//for ignore the Date,can not omit
 					Date expiry = null;
 					boolean isSecure = new Boolean(st.nextToken()).booleanValue();
@@ -287,7 +290,7 @@ public class Base {
 			br.close();
 			fr.close();
 		} catch(IOException e){
-			log.error(" read cookies.data IOException!");
+			log.error(" read cookies-prod.data IOException!");
 			e.printStackTrace();
 		}
 	}
@@ -360,4 +363,5 @@ public class Base {
 	public String getSubStr(String s){
 		return s.substring(0 , s.length() - 2);//得到字符串前你-2位子串
 	}
+
 }

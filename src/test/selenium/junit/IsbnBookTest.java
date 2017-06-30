@@ -13,12 +13,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
-
 import static org.junit.Assert.assertEquals;
 
 import test.selenium.java.page.ManagerIsbnPage;
 import test.selenium.util.Configs;
-import test.selenium.util.Locator;
 import test.selenium.util.Log;
 import test.selenium.util.Base;
 
@@ -28,55 +26,88 @@ public class IsbnBookTest {
 	private List<String> list;
 	private ManagerIsbnPage mp = new ManagerIsbnPage();
 	Actions action;
-	Locator locator;
 	private Log log = new Log(this.getClass());
-	
+
 	@Before
 	public void start(){
 		driver = base.getDriver("chrome");
-		driver.get(Configs.getMapValue("produrl"));
+		driver.get(Configs.getMapValue("qaurl"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		base.getCookies(driver, "cookies.data");
 		log.info(" login with cookie success!");
-		driver.get(Configs.getMapValue("produrl"));
+		driver.get(Configs.getMapValue("qaurl1"));
 		log.info(" open chrome browser success!");
 		base.sleep(1000);
 	}
 	
-	@Test
+	//@Test
 	public void test(){
+		//点击ISBN管理
 		toIsbnManage();
+		//点击ISBN管理员
+		toIsbnManager();
+		//根据barcode查找Isbn
 		findIsbn();
+		//删除该barcode的所有作业本
 		deleteIsbnBook();
+		//新增作业本
 		addIsbnBook();
+		//编辑作业本信息
 		editIsbnBook();
-		
+		//进行下一步操作，提交购买
+		handleIsbnBook();//在编辑页面直接点击“处理流程”
+		//回到主页
 		backToFirstWindow();
-		findIsbn();
-		handleIsbnBook();
-		base.sleep(20000);
+		//进行下一步操作，提交上传
+		buy();
 	}
-	
+
+	@Test
+	public void testBuy(){
+		toIsbnManage();
+		buy();
+	}
+
+	public void buy(){
+		driver.findElement(By.xpath(mp.BUY_XPATH)).click();
+		base.sleep(3000);
+		findIsbn();
+		driver.findElement(By.className(mp.HANDLE_CLASS)).click();
+		base.sleep(1000);
+		new Select(driver.findElement(By.id(mp.HANDLE_O_ID))).selectByVisibleText(mp.HANDLE_BUY);
+		base.sleep(1000);
+		new Select(driver.findElement(By.name(mp.HANDLE_P_ID))).selectByVisibleText(mp.HANDLE_M1);
+		base.sleep(1000);
+		driver.findElement(By.className(mp.HANDLE_SUBMIT_CLASS)).click();
+		base.sleep(1000);
+		assertEquals(mp.HANDLE_SUBMIT_CONTENT , base.closeAlertAndGetsItsTest());
+		base.sleep(1000);
+	}
+
 	public void toIsbnManage(){
 		driver.findElement(By.linkText(mp.ISBN_MANAGE)).click();
 		base.sleep(1000);
-		driver.findElement(By.xpath(mp.ISBN_MANAGER_XPATH)).click();
-		base.sleep(3000);
 	}
+
+	public void toIsbnManager(){
+		driver.findElement(By.xpath(mp.ISBN_MANAGER_XPATH)).click();
+		base.sleep(2000);
+	}
+
 	
 	public void findIsbn(){
 		driver.findElement(By.id(mp.BARCOD_ID)).clear();
 		driver.findElement(By.id(mp.BARCOD_ID)).sendKeys(mp.BARCODE);//find a ISBN barcode
 		base.sleep(1000);
 		driver.findElement(By.id(mp.BARCOD_SEARCH_ID)).click();
-		base.sleep(500);
+		base.sleep(2000);
 	}
 	
 	public void addIsbnBook(){
 		driver.findElement(By.xpath(mp.ADD_BOOK_XPATH)).click();//when only a barcode
-		base.sleep(1000);
+		base.sleep(2000);
 		assertEquals(mp.ADD_BOOK_CONFIRM , base.closeAlertAndGetsItsTest());
-		base.sleep(1000);
+		base.sleep(2000);
 	}
 	
 	public void deleteIsbnBook(){
@@ -87,7 +118,7 @@ public class IsbnBookTest {
 				e.click();
 				//System.out.println("delete " + (i+1) + " book!");
 				assertEquals(mp.DELETE_BOOK_CONFIRM , base.closeAlertAndGetsItsTest());
-				base.sleep(5000);
+				base.sleep(1000);
 			}
 		}
 	}
@@ -143,19 +174,20 @@ public class IsbnBookTest {
 		base.sleep(1000);
 		base.switchToNewWindow(driver , list.get(0));
 	}
-	
+
 	public void handleIsbnBook(){
 		driver.findElement(By.className(mp.HANDLE_CLASS)).click();
-		base.sleep(500);
+		base.sleep(1000);
 		new Select(driver.findElement(By.id(mp.HANDLE_O_ID))).selectByVisibleText(mp.HANDLE_O_BUY);
-		base.sleep(500);
+		base.sleep(1000);
 		new Select(driver.findElement(By.name(mp.HANDLE_P_ID))).selectByVisibleText(mp.HANDLE_P_M);
-		base.sleep(500);
+		base.sleep(1000);
 		driver.findElement(By.id(mp.HANDLE_E_ID)).sendKeys(mp.HANDLE_E_CON);
-		base.sleep(500);
+		base.sleep(1000);
 		driver.findElement(By.className(mp.HANDLE_SUBMIT_CLASS)).click();
-		base.sleep(500);
+		base.sleep(1000);
 		assertEquals(mp.HANDLE_SUBMIT_CONTENT , base.closeAlertAndGetsItsTest());
+		base.sleep(1000);
 	}
 	
 	@After

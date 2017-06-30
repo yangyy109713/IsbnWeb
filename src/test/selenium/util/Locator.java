@@ -28,12 +28,6 @@ public class Locator {
 		this.waitSec = 3;
 		this.byType = ByType.id;
 	}
-	public Locator(String element , long waitSec){
-		this.element = element;
-		this.waitSec = waitSec;
-		this.elementValue = "";
-		this.byType = ByType.id;
-	}
 	public Locator(String element , long waitSec , ByType byType){
 		this.element = element;
 		this.waitSec = waitSec;
@@ -47,6 +41,9 @@ public class Locator {
 	}
 	public String getElement(){
 		return this.element;
+	}
+	public void setElement(String element){
+		this.element = element;
 	}
 	public long getWaitSec(){
 		return this.waitSec;
@@ -117,7 +114,7 @@ public class Locator {
 		this.elementValue = elementValue;
 	}
 	public String toString(){
-		return this.element + " , " + this.elementValue + " , " + this.waitSec
-				+ " , " + this.byType;
+		return this.element + "," + this.elementValue + "," + this.waitSec
+				+ "," + this.byType;
 	}
 }
