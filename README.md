@@ -1,4 +1,11 @@
 # IsbnWeb
+2017-06-28 add 
+1.practise for Java read Excel  
+2.practise Collection and notify
+
+
+
+
 IsbnWebTest
 原编码格式：GBK
 pull到IDEA中会被默认读取成UTF-8，出现乱码，解决办法：
